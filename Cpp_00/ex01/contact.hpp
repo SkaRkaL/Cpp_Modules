@@ -1,12 +1,12 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
+# include <climits>
 
 # define LINE "- - - - - - - - - - - - - - - - - - - - - - -"
-# define TABLE "| Index | First_name | Last_name | Nickname |"
-# define TABLE2 "| Phone number | Darkest secret |"
+# define TABLE "|  N  |   F_name   |   L_name   | Nick_name |"
 
 class Contact {
 	private :

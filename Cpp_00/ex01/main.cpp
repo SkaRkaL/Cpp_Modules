@@ -13,17 +13,21 @@ int main()
 	PhoneBook	phonebook;
 	std::string input;
 
-	while (true)
+	while (1)
 	{
-		std::cout << "Enter a string: ";
+		std::cout << "Type ADD, SEARCH or EXIT: ";
 		std::getline(std::cin, input);
-		if (input == "ADD\n")
+
+		if (input == "ADD" || input == "add")
 			add(&phonebook);
 		else if (input.empty())
 			continue ;
-		else if (input == "Exit\n" || input == "EXIT\n")
-			exit(0);
-		else if (input == "SEARCH\n")
+		else if (input == "EXIT" || input == "exit" || std::cin.eof())
+		{
+			std::cout << "Thank you for using our awsome PhoneBook!" << std::endl;
+			break;
+		}
+		else if (input == "SEARCH" || input == "search")
 			phonebook.SearchContact();
 		else
 			std::cout << "-- Invalid input --" << std::endl;
