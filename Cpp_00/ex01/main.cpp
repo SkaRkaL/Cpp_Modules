@@ -1,4 +1,4 @@
-#include "PhoneBook.hpp"
+#include "includes/Phonebook.hpp"
 
 void	add(PhoneBook *phonebook)
 {
@@ -18,7 +18,12 @@ int main()
 		std::cout << "Type ADD, SEARCH or EXIT: ";
 		std::getline(std::cin, input);
 
-		if (input == "ADD" || input == "add")
+		if (input[0] == '\0')
+		{
+			std::cout << CNTR_D;
+			exit(1);
+		}
+		else if (input == "ADD" || input == "add")
 			add(&phonebook);
 		else if (input.empty())
 			continue ;
