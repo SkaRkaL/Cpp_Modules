@@ -22,29 +22,29 @@ void	Harl::complain(std::string level) {
 
 	std::string str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	
-	for (index = 1; index < 5; index++)
+	for (index = 0; index < 4; index++)
 	{
 		if (level == str[index])
 			break;
 	}
 
 	switch(index) {
-		case 1:
+		case 0:
 			func = &Harl::debug;
 			break;
-		case 2:
+		case 1:
 			func = &Harl::info;
 			break;
-		case 3:
+		case 2:
 			func = &Harl::warning;
 			break;
-		case 4:
+		case 3:
 			func = &Harl::error;
 			break;
 		default:
-			std::cout << "[ERROR] Wrong level" << std::endl;
-			func = NULL;
+			std::cout << "ERR_CMD" << level << "END_ERR\n";
+			func = NULL; 
 	}
-	if (func != NULL)
+	if (func)
 		(this->*func)();
 }
