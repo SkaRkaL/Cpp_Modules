@@ -5,8 +5,8 @@
 # include <string>
 # include <climits>
 
-# define LINE "- - - - - - - - - - - - - - - - - - - - - - -"
-# define TABLE "|  N  |   F_name   |   L_name   | Nick_name |"
+# define LINE " - - - - - - - - - - - - - - - - - - - -"
+# define TABLE "|  N  |  F_name  |  L_name  | Nickname |"
 
 class Contact {
 	private :
