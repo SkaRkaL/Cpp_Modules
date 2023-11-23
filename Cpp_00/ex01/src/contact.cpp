@@ -20,10 +20,9 @@ std::string	Contact::getPhonenumber() {
 	return (Phonenumber);
 }
 
-std::string	prompt(std::string str)
-{
-	std::string input;
+std::string	prompt(std::string str) {
 
+	std::string input;
 	while (1) {
 		std::cout << str;
 		std::getline(std::cin, input);
@@ -34,6 +33,7 @@ std::string	prompt(std::string str)
 		if (!input.empty())
 			return (input);
 	}
+
 }
 
 void	Contact::get_info() {
