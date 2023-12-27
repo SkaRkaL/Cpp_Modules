@@ -28,10 +28,10 @@ Animal	 &Animal::operator=(const Animal &copy)
 
 Animal::~Animal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
 void Animal::makeSound() const
 {
-	std::cout << "Animal sound [ SOUND ]" << std::endl;
+	std::cout << "Animal Sound [ SOUND ]" << std::endl;
 }
