@@ -4,12 +4,12 @@
 Animal::Animal()
 {
 	type = "An Animal";
-	std::cout << "Animal default constructor called" << std::endl;
+	std::cout << "Animal Default Constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal& copy)
 {
-	std::cout << "Animal copy constructor called" << std::endl;
+	std::cout << "Animal Copy Constructor Called" << std::endl;
 	*this = copy;
 }
 
@@ -33,5 +33,5 @@ Animal::~Animal()
 
 void Animal::makeSound() const
 {
-	std::cout << "Animal Sound [ SOUND ]" << std::endl;
+	std::cout << "No specific sound !" << std::endl;
 }
