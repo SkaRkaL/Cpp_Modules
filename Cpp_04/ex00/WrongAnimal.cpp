@@ -4,12 +4,12 @@
 WrongAnimal::WrongAnimal()
 {
 	type = "WrongAnimal";
-	std::cout << "WrongAnimal default constructor called" << std::endl;
+	std::cout << "WrongAnimal Default Constructor Called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& copy)
 {
-	std::cout << "WrongAnimal copy constructor called" << std::endl;
+	std::cout << "WrongAnimal Copy Constructor Called" << std::endl;
 	*this = copy;
 }
 
@@ -28,10 +28,10 @@ WrongAnimal	 &WrongAnimal::operator=(const WrongAnimal &copy)
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal destructor called" << std::endl;
+	std::cout << "WrongAnimal Destructor Called" << std::endl;
 }
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "WrongAnimal sound [ SOUND ]" << std::endl;
+	std::cout << "WrongAnimal Sound [ SOUND ]" << std::endl;
 }
