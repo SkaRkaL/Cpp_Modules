@@ -7,7 +7,7 @@ Cat::Cat()
 
 Cat::Cat(const Cat& copy)
 {
-	std::cout << "Cat copy Constructor Called" << std::endl;
+	std::cout << "Cat Copy Constructor Called" << std::endl;
 	*this = copy;
 }
 
@@ -23,15 +23,13 @@ void Cat::makeSound() const
 
 Cat::~Cat()
 {
-	std::cout << "Destructor <Cat> called" << std::endl;
+	std::cout << "Destructor <Cat> Called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& copy)
 {
 	std::cout << "Cat Assignation Operator [=] Called" << std::endl;
 	if (this != &copy)
-	{
 		type = copy.type;
-	}
 	return (*this);
 }
