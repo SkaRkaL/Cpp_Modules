@@ -4,3 +4,7 @@ a.out
 */a.out
 .vscode/
 */.vscode
+*.o
+*/.o
+.DS_Store
+*/.DS_Store
