@@ -13,7 +13,7 @@ all : $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-.o : .cpp
+.o : .cpp Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean :
