@@ -6,33 +6,33 @@
 #include <stdexcept>
 
 class Bureaucrat {
-    private:
-        const std::string   _name;
-        uint8_t             _grade;
-    public:
-        Bureaucrat ( std::string name, int grade );
-        Bureaucrat ( const Bureaucrat& other );
-        ~Bureaucrat ( void );
+	private:
+		const std::string   _name;
+		int _grade;
+	public:
+		Bureaucrat ( std::string name, int grade );
+		Bureaucrat ( const Bureaucrat& other );
+		~Bureaucrat ( void );
 
-        const Bureaucrat& operator= (const Bureaucrat& other);
+		const Bureaucrat& operator= (const Bureaucrat& other);
 
-        int getGrade( void ) const;
-        std::string getName( void ) const;
+		int getGrade( void ) const;
+		std::string getName( void ) const;
 
-        void increment( void );
-        void decrement( void );
+		void increment( void );
+		void decrement( void );
 
-        class GradeTooHighException : public std::exception
-        {
+		class GradeTooHighException : public std::exception
+		{
 			public:
-            const char* what( void ) const throw();
-        };
+			const char* what( void ) const throw();
+		};
 
-        class GradeTooLowException : public std::exception
-        {
+		class GradeTooLowException : public std::exception
+		{
 			public:
-            const char* what( void ) const throw();
-        };
+			const char* what( void ) const throw();
+		};
 
 };
 
