@@ -33,7 +33,8 @@ int main( void )
         form2.execute(bureaucrat);
         bureaucrat.signForm(form3);
         bureaucrat.executeForm(form3);
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
 }

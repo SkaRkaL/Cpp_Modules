@@ -16,11 +16,14 @@ int main( void )
         bureaucrat.signForm(form1);
         bureaucrat.executeForm(form1);
         std::cout << form1 << std::endl;
+
         bureaucrat.signForm(form2);
         bureaucrat.executeForm(form2);
+
         form2.execute(bureaucrat);
         bureaucrat.signForm(form3);
         bureaucrat.executeForm(form3);
+
     }
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;

@@ -37,14 +37,14 @@ class	AForm
 
 		class GradeTooHighException : public std::exception
 		{
-		public:
-			const char* what() const throw();
+			public:
+				const char* what() const throw();
 		};
 
 		class NonSignedException : public std::exception
 		{
-		public:
-			const char* what() const throw();
+			public:
+				const char* what() const throw();
 		};
 
 		class	CannotOpenAFile : public std::exception
@@ -52,7 +52,6 @@ class	AForm
 			public:
 				const char *what() const throw();
 		};
-		
 
 		virtual	void execute(Bureaucrat const & executor) const = 0;
 };

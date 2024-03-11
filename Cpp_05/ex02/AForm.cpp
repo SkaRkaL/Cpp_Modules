@@ -85,7 +85,7 @@ const char	*AForm::NonSignedException::what() const throw()
 
 const char	*AForm::CannotOpenAFile::what() const throw()
 {
-	return "cannot open the file!!";
+	return "can not open the file!!";
 }
 
 std::ostream& operator<< (std::ostream& os, const AForm& obj)

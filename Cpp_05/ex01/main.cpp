@@ -11,7 +11,9 @@ int main( void )
         bureaucrat.signForm(form);
 
         std::cout << form << std::endl;
-    } catch (std::exception &e) {
+    }
+
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     return EXIT_SUCCESS;
