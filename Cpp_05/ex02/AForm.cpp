@@ -70,22 +70,22 @@ int			AForm::getGradeToExecute(void) const
 
 const char	*AForm::GradeTooLowException::what() const throw()
 {
-	return "Grade Too Low";
+	return "GradeTooLowException";
 }
 
 const char	*AForm::GradeTooHighException::what() const throw()
 {
-	return "Grade Too High";
+	return "GradeTooHighException";
 }
 
 const char	*AForm::NonSignedException::what() const throw()
 {
-	return "Still not signed!!";
+	return "Still not signed !";
 }
 
 const char	*AForm::CannotOpenAFile::what() const throw()
 {
-	return "can not open the file!!";
+	return "Can't open file !";
 }
 
 std::ostream& operator<< (std::ostream& os, const AForm& obj)

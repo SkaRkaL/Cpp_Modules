@@ -37,10 +37,10 @@ void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 		throw GradeTooLowException();
 	if (!this->getSigned())
 		throw NonSignedException();
-	std::cout << "-------------------------------------" << std::endl;
+	std::cout << "----------------- --------------------" << std::endl;
 	int i = rand() % 2;
 	if (i == 0)
 		std::cout << "info: " << this->_target << " has been robotomized successfully." << std::endl;
 	else
-		std::cout << "info: " << this->_target << " robotic failure.." << std::endl;
+		std::cout << "info: " << this->_target << " robotic failed.." << std::endl;
 } 

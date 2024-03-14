@@ -77,26 +77,26 @@ void		Form::beSigned(const Bureaucrat& obj)
 
 const char	*Form::GradeTooLowException::what() const throw()
 {
-	return "Grade Too Low";
+	return "GradeTooLowException";
 }
 
 const char	*Form::GradeTooHighException::what() const throw()
 {
-	return "Grade Too High";
+	return "GradeTooHighException";
 }
 
-std::ostream& operator<< (std::ostream& os, const Form& obj)
+std::ostream& operator<< (std::ostream& out, const Form& obj)
 {
-	os << "------------- Form -------------" << std::endl;
-	os << std::endl;
-    os << "Form name: [ " << obj.getName() << " ]" << std::endl
-		<< "Grade to sign: [ " << obj.getGradeToSigned() << " ]" << std::endl
-		<< "Grade to execute: [ " << obj.getGradeToExecute() << " ]" << std::endl
-		<< "Is signed : [ ";
+	out << "------------- Form -------------" << std::endl;
+	out << std::endl;
+    out << "F_Name: [ " << obj.getName() << " ]" << std::endl
+		<< "Grade to Sign: [ " << obj.getGradeToSigned() << " ]" << std::endl
+		<< "Grade to Execute: [ " << obj.getGradeToExecute() << " ]" << std::endl
+		<< "Is Signed? : [ ";
 		if (obj.getSigned())
-			os << "true";
+			out << "true";
 		else
-			os << "false";
-	os << " ]" << std::endl;
-    return os;
+			out << "false";
+	out << " ]" << std::endl;
+    return out;
 }

@@ -55,12 +55,12 @@ int			Form::getGradeToExecute(void) const
 
 const char	*Form::GradeTooLowException::what() const throw()
 {
-	return "Grade Too Low";
+	return "GradeTooLowException";
 }
 
 const char	*Form::GradeTooHighException::what() const throw()
 {
-	return "Grade Too High";
+	return "GradeTooHighException";
 }
 
 const char	*Form::NonSignedException::what() const throw()

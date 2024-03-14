@@ -37,6 +37,6 @@ Form*	Intern::makeForm(const std::string& nameForm, const std::string& target)
 			return form[i];
 		}
 	}
-	std::cout << "Intern cannot create " << nameForm << "!!" << std::endl;
+	std::cout << "Intern can't create " << nameForm << "!!" << std::endl;
 	return NULL;
 }

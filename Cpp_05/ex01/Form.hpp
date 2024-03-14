@@ -41,4 +41,4 @@ class	Form
 		};
 };
 
-std::ostream& operator<< (std::ostream& os, const Form& obj);
+std::ostream& operator<< (std::ostream& out, const Form& obj);
