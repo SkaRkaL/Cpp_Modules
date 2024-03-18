@@ -7,7 +7,8 @@ typedef struct	s_data
 {
 	int			blackHole;
 	double		level;
+	std::string	name;
 }				Data;
 
-uintptr_t	serialize(Data *ptr);
 Data		*deserialize(uintptr_t raw);
+uintptr_t	serialize(Data *ptr);
