@@ -36,6 +36,11 @@ void To_Float(std::string &input)
 	{
 		input.erase(input.find('f'), 1);
 	}
+    if (input == "-inff" || input == "+inff" || input == "nan" || input == "-inf" || input == "+inf" || input == "inff")
+    {
+        std::cout << "float: " << input << "f" << std::endl;
+        return;
+    }
     std::istringstream issf(input);
     for (size_t i = 0; i < input.length(); i++)
     {
@@ -45,7 +50,7 @@ void To_Float(std::string &input)
             return;
         }
     }
-    std::istringstream issf(input);
+
     float f;
     if (issf >> f)
     {
@@ -62,14 +67,7 @@ void To_Float(std::string &input)
 void To_Intiger(std::string const &input)
 {
     int i = std::atoi(input.c_str());
-    for (size_t i = 0; i < input.length(); i++)
-    {
-        if (!isdigit(input[i]) && input[i] != '-' && input[i] != '.')
-        {
-            std::cout << "int: impossible" << std::endl;
-            return;
-        }
-    }
+
     if (isdigit(input[0]) || (input[0] == '-' && isdigit(input[1])))
         std::cout << "int: " << i << std::endl;
     else
