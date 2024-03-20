@@ -11,8 +11,8 @@ void    swap(T &a, T &b)
 	b = c;
 }
 
-template <typename C, typename T>
-C   min(C a, T b)
+template <typename T>
+T   min(T a, T b)
 {
 	if (a == b)
 		return b;
@@ -21,8 +21,8 @@ C   min(C a, T b)
 	return a;
 }
 
-template <typename T, typename C>
-T   max(T a, C b)
+template <typename T>
+T   max(T a, T b)
 {
 	if (a == b)
 		return b;
