@@ -10,14 +10,12 @@ class Array
 		unsigned int arraySize;
 
 	public:
-		Array()
-			: elms(NULL), arraySize(0) {}
+		Array() : elms(NULL), arraySize(0) {}
 
-		Array(unsigned int n)
-			: elms(new T[n]), arraySize(n)
+		Array(unsigned int n) : elms(new T[n]), arraySize(n)
 		{
 			for (unsigned int i = 0; i < arraySize; ++i)
-				elms[i] = T(); // Default initialization
+				elms[i] = T();
 		}
 
 		Array(const Array &other)
@@ -33,7 +31,7 @@ class Array
 		{
 			if (this != &other)
 			{
-				delete[] elms; // Free existing memory
+				delete[] elms;
 				arraySize = other.arraySize;
 				elms = new T[arraySize];
 				for (unsigned int i = 0; i < arraySize; ++i)
