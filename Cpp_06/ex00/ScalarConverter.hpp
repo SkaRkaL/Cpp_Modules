@@ -9,8 +9,6 @@ class ScalarConverter {
 	private:
 		ScalarConverter();
 	public:
-		ScalarConverter(ScalarConverter const &obj);
-		~ScalarConverter();
 
 		static void convert(std::string input);
 };
