@@ -1,6 +1,7 @@
 #include "Serialization.hpp"
 
 int main() {
+
 	Data data;
 	uintptr_t raw;
 
@@ -15,18 +16,21 @@ int main() {
 				<< data.blackHole << std::endl
 				<< "Level :	"
 				<< data.level
+				<< std::endl
+				<< "Name : "
+				<< data.name << std::endl
 				<< std::endl;
 
 	std::cout	<< "\n--------------- Data After deserialization ---------------"
 				<< std::endl;
 
 	// Serialize and Deserialize
-	raw = serialize(&data);
+	raw = serialization::serialize(&data);
 	std::cout	<< "	* Serialized Raw *" << std::endl
 				<< raw << std::endl
 				<< std::endl;
 
-	Data *ptr = deserialize(raw);
+	Data *ptr = serialization::deserialize(raw);
 	std::cout	<< "	* Deserialized Data *" << std::endl
 				<< "Level :	"
 				<< ptr->level << std::endl

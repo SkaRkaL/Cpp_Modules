@@ -10,5 +10,12 @@ typedef struct	s_data
 	std::string	name;
 }				Data;
 
-Data		*deserialize(uintptr_t raw);
-uintptr_t	serialize(Data *ptr);
+class serialization
+{
+	private:
+		serialization();
+	public:
+		static Data		*deserialize(uintptr_t raw);
+		static uintptr_t	serialize(Data *ptr);
+};
+
