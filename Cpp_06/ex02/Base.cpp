@@ -31,23 +31,18 @@ void identify(Base &p)
 		std::cout << "A" << std::endl;
 	}
 	catch (std::exception &abc) {
-		std::cerr << "Error: " << abc.what() << std::endl;
+		try {
+			B b = dynamic_cast<B &>(p);
+			std::cout << "B" << std::endl;
+		}
+		catch (std::exception &abc) {
+			try {
+				C c = dynamic_cast<C &>(p);
+				std::cout << "C" << std::endl;
+			}
+			catch (std::exception &abc) {
+				std::cerr << "Error: " << abc.what() << std::endl;
+			}
+		}
 	}
-
-	try {
-		B b = dynamic_cast<B &>(p);
-		std::cout << "B" << std::endl;
-	}
-	catch (std::exception &abc) {
-		std::cerr << "Error: " << abc.what() << std::endl;
-	}
-
-	try {
-		C c = dynamic_cast<C &>(p);
-		std::cout << "C" << std::endl;
-	}
-	catch (std::exception &abc) {
-		std::cerr << "Error: " << abc.what() << std::endl;
-	}
-
 }

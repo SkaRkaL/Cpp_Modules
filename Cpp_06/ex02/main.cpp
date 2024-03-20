@@ -8,8 +8,7 @@ int main()
 	identify(base);
 
 	// Identify by reference
-	identify(base);
-
+	identify(*base);
 
 	return 0;
 }
