@@ -45,7 +45,7 @@ int Span::shortestSpan(void)
 int Span::longestSpan(void)
 {
 	if (vec.size() < 2)
-		throw std::invalid_argument("Cannot find span with less than 2 element here!");
+		throw std::invalid_argument("Error: Can not find span with less than 2 element here!");
 	std::sort(vec.begin(), vec.end());
 	return (vec[vec.size() - 1] - vec[0]);
 }
@@ -53,7 +53,7 @@ int Span::longestSpan(void)
 void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
 	if (this->vec.size() + std::distance(begin, end) >= this->N)
-		throw std::invalid_argument("This span is not large enaugh");
+		throw std::invalid_argument("Error: Not large enaugh !");
 	else
 		this->vec.insert(this->vec.end(), begin, end);
 }
