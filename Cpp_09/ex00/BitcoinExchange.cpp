@@ -54,9 +54,9 @@ static void checkValue(float n)
 		throw BitcoinExchange::ValueErr();
 }
 
-void BitcoinExchange::loadData(std::string const &csvFile)
+void BitcoinExchange::loadData(std::string const &dataFile)
 {
-	std::ifstream file(csvFile);
+	std::ifstream file(dataFile);
 	if (!file.is_open())
 	{
 		std::cerr << "Error: Unable to open data file." << std::endl;
