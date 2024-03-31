@@ -1,47 +1,24 @@
-# NAME
-# **************************************************************************** #
-BINARY				= RPN
+NAME = RPN
 
-# FILES
-# **************************************************************************** #
-SRCS				= main.cpp \
-					RPN.cpp
+SRC = main.cpp RPN.cpp 
 
-OBJS				=${addprefix ${OBJS_DIR}, ${SRCS:.cpp=.o}}
-DEPS				=${addprefix ${OBJS_DIR}, ${SRCS:.cpp=.d}}
+OBJ = $(SRC:.cpp=.o)
 
-# DIRECTORY
-# **************************************************************************** #
-OBJS_DIR			= objs/
-SRCS_DIR			= 
+CPP = c++
 
-# COMPILATION
-# **************************************************************************** #
-LINK				= c++
-CC					= c++ -c
-DEPFLAGS			= -MMD -MP
-CFLAGS				= -Wall -Wextra -Werror -std=c++98
-RM					= rm -rf
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-# RULES
-# **************************************************************************** #
-all:	$(BINARY)
+all: $(NAME)
 
-$(OBJS_DIR)%.o:	$(SRCS_DIR)%.cpp
-					@mkdir -p $(dir $@)
-					$(CC) $(CFLAGS) $(DEPFLAGS) $(INCLUDE) $< -o $@
+$(NAME): $(OBJ)
+	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
-$(BINARY): $(OBJS)
-					$(LINK) $(CFLAGS) $(INCLUDE) -o $@ $^ $(LIBS)
+%.o: %.cpp RPN.hpp
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
-					@$(RM) $(OBJS_DIR)
-
+	rm -f $(OBJ)
 fclean: clean
-					@$(RM) $(BINARY)
+	rm -f $(NAME)
 
 re: fclean all
-
--include ${DEPS}
-
-.PHONY: all bonus clean fclean re
