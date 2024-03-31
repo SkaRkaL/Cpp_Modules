@@ -12,7 +12,7 @@ class BitcoinExchange
 	public:
 		BitcoinExchange(std::string data_base, std::string input_file);
 		~BitcoinExchange();
-		void parser(std::string const &csvFile);
+		void parser(std::string const &data_base);
 		void findDate();
 
 		class DbErr : public std::exception

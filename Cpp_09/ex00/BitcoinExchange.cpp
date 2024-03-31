@@ -56,12 +56,12 @@ static void checkValue(float n)
 		throw BitcoinExchange::ValueErr();
 }
 
-void BitcoinExchange::parser(std::string const &dataFile)
+void BitcoinExchange::parser(std::string const &data_base)
 {
-	std::ifstream file(dataFile);
+	std::ifstream file(data_base);
 	if (!file.is_open())
 	{
-		std::cerr << "Error: Unable to open data file." << std::endl;
+		std::cerr << "Error: Unable to open data base file." << std::endl;
 		exit(1);
 	}
 	std::string firstLine;
