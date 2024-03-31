@@ -1,8 +1,8 @@
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(std::string file, std::string input) : _input(input)
+BitcoinExchange::BitcoinExchange(std::string data_base, std::string input_file) : _input(input_file)
 {
-	parser(file);
+	parser(data_base);
 }
 
 BitcoinExchange::~BitcoinExchange() {}

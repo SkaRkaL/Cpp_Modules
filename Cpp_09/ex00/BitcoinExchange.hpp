@@ -10,7 +10,7 @@ class BitcoinExchange
 		std::string _input;
 
 	public:
-		BitcoinExchange(std::string file, std::string input);
+		BitcoinExchange(std::string data_base, std::string input_file);
 		~BitcoinExchange();
 		void parser(std::string const &csvFile);
 		void findDate();
