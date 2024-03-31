@@ -2,7 +2,7 @@
 
 BitcoinExchange::BitcoinExchange(std::string file, std::string input) : _input(input)
 {
-	loadData(file);
+	parser(file);
 }
 
 BitcoinExchange::~BitcoinExchange() {}
@@ -23,10 +23,12 @@ static void checkDate(std::string date)
 	std::string day = date.substr(8, 2);
 	int mm = stoi(month);
 	int dd = stoi(day);
-	if (mm < 1 || mm > 12 || dd < 1 || dd > 31)
-		throw BitcoinExchange::MonthDayErr();
+	if (mm < 1 || mm > 12)
+		throw BitcoinExchange::MonthErr();
+	else if (dd < 1 || dd > 31)
+		throw BitcoinExchange::DayErr();
 	else if ((mm == 2) && (dd > 29))
-		throw BitcoinExchange::MonthDayErr();
+		throw BitcoinExchange::DayErr();
 	else if ((mm == 4 || mm == 6 || mm == 9 || mm == 11) && (dd > 30))
 		throw BitcoinExchange::Month30Err();
 	else if (year.length() < 4)
@@ -54,7 +56,7 @@ static void checkValue(float n)
 		throw BitcoinExchange::ValueErr();
 }
 
-void BitcoinExchange::loadData(std::string const &dataFile)
+void BitcoinExchange::parser(std::string const &dataFile)
 {
 	std::ifstream file(dataFile);
 	if (!file.is_open())

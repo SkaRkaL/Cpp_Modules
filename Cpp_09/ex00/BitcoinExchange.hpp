@@ -12,7 +12,7 @@ class BitcoinExchange
 	public:
 		BitcoinExchange(std::string file, std::string input);
 		~BitcoinExchange();
-		void loadData(std::string const &csvFile);
+		void parser(std::string const &csvFile);
 		void findDate();
 
 		class DbErr : public std::exception
@@ -24,12 +24,21 @@ class BitcoinExchange
 				}
 		};
 
-		class MonthDayErr : public std::exception
+		class MonthErr : public std::exception
 		{
 			public:
 				virtual const char *what() const throw()
 				{
-					return "Error: Incorrect month or day";
+					return "Error: Incorrect month";
+				}
+		};
+
+		class DayErr : public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return "Error: Incorrect day";
 				}
 		};
 
