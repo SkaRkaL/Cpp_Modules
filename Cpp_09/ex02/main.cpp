@@ -1,52 +1,119 @@
 #include "PmergeMe.hpp"
 
-
-int main(int argc, char *argv[])
+bool	FillContainers(vector<int> &vec, deque<int> &deq, int ac, char **av)
 {
-    if (argc < 2)
+	for (int i = 1; i < ac; i++)
+	{
+		if (av[i][0] == '\0')
+		{
+			cout << "Error: There's an emty array." << endl;
+			return 1;
+		}
+		int n = atoi(av[i]);
+		if (n < 0)
+		{
+			cout << "Error: " << av[i] << " is not a positive integer." << endl;
+			return 1;
+		}
+		size_t j = 0;
+
+		if (av[i][j] == '+')
+			j++;
+		for (; j < strlen(av[i]); j++)
+		{
+			if (!isdigit(av[i][j]))
+			{
+				cout << "Error: " << av[i] << " is not a number." << endl;
+				return 1;
+			}
+		}
+		vec.push_back(n);
+		deq.push_back(n);
+	}
+	return 0;
+}
+
+void	printVector(vector<int> vec)
+{
+	for (size_t i = 0; i < vec.size(); i++)
+	{
+		cout << vec[i] << " ";
+	}
+	cout << endl;
+}
+
+void	printDeque(deque<int> deq)
+{
+	for (size_t i = 0; i < deq.size(); i++)
+	{
+		cout << deq[i] << " ";
+	}
+	cout << endl;
+}
+
+
+int main(int ac, char **av)
+{
+	if (ac < 2)
     {
-        std::cout << "Usage: " << argv[0] << " <positive_integer_sequence>" << std::endl;
+        cout << "Usage: " << av[0] << " <positive_integer_sequence>" << endl;
         return 1;
     }
 
-    std::vector<int> arrVector;
-    std::list<int> arrList;
-    PmergeMe p;
+	vector<int>		vec;
+	vector<int>		sorted_vec;
 
-    // Parse the input sequence and populate both vector and list
-    for (int i = 1; i < argc; i++)
-    {
-        int num = atoi(argv[i]);
-        if (num <= 0)
-        {
-            std::cerr << "Error: Input sequence must contain only positive integers." << std::endl;
-            return 1;
-        }
-        arrVector.push_back(num);
-        arrList.push_back(num);
-    }
+	deque<int>		deq;
+	deque<int>		sorted_deq;
 
-    // Measure time for sorting using vector
-    clock_t startVector = clock();
-    p.mergeSortVector(arrVector, 0, arrVector.size() - 1);
-    clock_t endVector = clock();
-    double vectorTime = static_cast<double>(endVector - startVector) / CLOCKS_PER_SEC * 1000;
+	if (FillContainers(vec, deq, ac, av) == 1)
+		return 1;
 
-    // Measure time for sorting using list
-    clock_t startList = clock();
-    p.mergeSortList(arrList, arrList.begin(), --arrList.end());
-    clock_t endList = clock();
-    double listTime = static_cast<double>(endList - startList) / CLOCKS_PER_SEC * 1000;
+	cout << "Before : ";
+	printVector(vec);
 
-    // Print sorted sequences
-    std::cout << "Sorted sequence using vector: ";
-    p.printVector(arrVector);
-    std::cout << "Sorted sequence using list: ";
-    p.printList(arrList);
+	clock_t startVector = clock();
 
-    // Print time comparisons
-    std::cout << "Time taken to sort using vector: " << vectorTime << " seconds" << std::endl;
-    std::cout << "Time taken to sort using list: " << listTime << " seconds" << std::endl;
+	MergeInsertionSort <vector<int>, vector<pair<int, int> > > (vec, sorted_vec);
+	
+	clock_t endVector = clock();
+	
+	double vectorTime = static_cast<double>(endVector - startVector) / CLOCKS_PER_SEC * 1000;
 
-    return 0;
+	
+	
+	clock_t startDeque = clock();
+	
+	MergeInsertionSort <deque<int>, deque<pair<int, int> > > (deq, sorted_deq);
+	
+	clock_t endDeque = clock();
+	
+	double dequeTime = static_cast<double>(endDeque - startDeque) / CLOCKS_PER_SEC * 1000;
+	
+	cout << "After  : ", printVector(sorted_vec), cout << endl;
+
+
+	cout << "Sorted sequence using [std::vector]	: ";
+	printVector(sorted_vec);
+
+	cout << "Sorted sequence using [std::deque]	: ";
+	printDeque(sorted_deq);
+	cout	<< endl;
+
+
+	cout	<< "Time taken to sort a range of "
+			<< sorted_vec.size()
+			<< " using [std::vector]	: "
+			<< vectorTime
+			<< " seconds"
+			<< endl;
+
+	cout	<< "Time taken to sort a range of "
+			<< sorted_deq.size()
+			<< " using [std::deque]	: "
+			<< dequeTime
+			<< " seconds"
+			<< endl;
+
+	return 0;
 }
